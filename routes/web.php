@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\DashboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,10 +19,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+Route::get('/dashboard', [DashboardController::class, 'index'])->middleware(['auth'])->name('dashboard');
 
-Route::get('/test', [ContactController::class, 'index']);
+// Contact controllers
+Route::get('/contacts/create', [ContactController::class, 'create'])->name('createContact');
+Route::post('/contacts/create', [ContactController::class, 'store'])->name('saveContact');
 
 require __DIR__.'/auth.php';
