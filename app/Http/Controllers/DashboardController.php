@@ -10,8 +10,12 @@ class DashboardController extends Controller
 {
     public function index()
     {
+        #get user id
         $user_id = Auth::user()->id;
-        $contacts = $contacts = Contact::where('user_id', '=', $user_id)->get();
+        #get my contacts and public contacts
+        $contacts = Contact::where('user_id', '=', $user_id)
+                            ->orWhere('public', '=', 'yes')
+                            ->paginate(10);
 
         return view('dashboard', [
             'contacts' => $contacts,

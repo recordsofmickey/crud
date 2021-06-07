@@ -24,5 +24,6 @@ Route::get('/dashboard', [DashboardController::class, 'index'])->middleware(['au
 // Contact controllers
 Route::get('/contacts/create', [ContactController::class, 'create'])->name('createContact');
 Route::post('/contacts/create', [ContactController::class, 'store'])->name('saveContact');
+Route::get('/contacts/show/{contact:id}', [ContactController::class, 'show']);
 
 require __DIR__.'/auth.php';

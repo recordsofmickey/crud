@@ -33,6 +33,7 @@ class ContactController extends Controller
             'zip_code' => 'required',
             'phone_nr' => 'required|max:255',
             'email' => 'required|email|max:255',
+            'public' => 'required',
         ]);
         $user_id = Auth::user()->id;
         
@@ -47,19 +48,24 @@ class ContactController extends Controller
             'phone_nr' => $request->phone_nr,
             'email' => $request->email,
             'user_id' => $user_id,
+            'public' => $request->public,
         ]);
         
         #return to dashboard with all contacts from user
         $contacts = Contact::where('user_id', '=', $user_id)->get();
 
         return redirect('dashboard', [
-            'contacts' = $contacts
+            'contacts' => $contacts,
         ]);
     }
     //shows contact
     public function show($id)
     {
-        # code...
+        $contact = Contact::find($id);
+
+        return view('contacts.show', [
+            'contact' => $contact,
+        ]);
     }
     //shows editable contact
     public function edit($id)
