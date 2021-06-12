@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddUserIdAndSoftdeleteToContacts extends Migration
+class AddUserIdToContacts extends Migration
 {
     /**
      * Run the migrations.
@@ -14,7 +14,7 @@ class AddUserIdAndSoftdeleteToContacts extends Migration
     public function up()
     {
         Schema::table('contacts', function (Blueprint $table) {
-            $table->integer('user_id');
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->softDeletes();
         });
     }
@@ -28,7 +28,7 @@ class AddUserIdAndSoftdeleteToContacts extends Migration
     {
         Schema::table('contacts', function (Blueprint $table) {
             $table->dropSoftDeletes();
-            $table->dropIfExists('user_id');
+            $table->dropForeign('user_id');
         });
     }
 }

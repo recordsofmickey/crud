@@ -31,7 +31,7 @@ class ContactFactory extends Factory
             'city' => $this->faker->city(),
             'email' => $this->faker->safeEmail(),
             'phone_nr' => $this->faker->e164PhoneNumber(),
-            'user_id' => User::factory(),
+            'user_id' => User::all()->random()->id,
             'public' => $this->faker->randomElement(['yes', 'no']),
         ];
     }

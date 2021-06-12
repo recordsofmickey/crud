@@ -5,14 +5,11 @@ namespace App\Http\Controllers;
 use App\Models\Contact;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Validation\Rules;
 
 class ContactController extends Controller
 {
     //returns list of all contacts
-    public function index()
-    {
-        return view('');
-    }
 
     //returns create contact view
     public function create()
@@ -51,18 +48,14 @@ class ContactController extends Controller
             'public' => $request->public,
         ]);
         
-        #return to dashboard with all contacts from user
-        $contacts = Contact::where('user_id', '=', $user_id)->get();
+        #return to dashboard with all contacts from user;
 
-        return redirect('dashboard', [
-            'contacts' => $contacts,
-        ]);
+        return redirect('dashboard');
     }
     //shows contact
     public function show($id)
     {
         $contact = Contact::find($id);
-
         return view('contacts.show', [
             'contact' => $contact,
         ]);
@@ -70,17 +63,53 @@ class ContactController extends Controller
     //shows editable contact
     public function edit($id)
     {
-        # code...
+        $contact = Contact::find($id);
+
+        return view('contacts.edit', [
+            'contact' => $contact,
+        ]);
     }
     //updates contact
-    public function FunctionName(Request $request)
+    public function update(Request $request, $id)
     {
-        # code...
+        #validate request
+        $this->validate($request, [
+            'first_name' => 'required|max:255',
+            'last_name' => 'required|max:255',
+            'street' => 'required|max:255',
+            'house_nr' => 'required',
+            'city' => 'required|max:255',
+            'zip_code' => 'required',
+            'phone_nr' => 'required|max:255',
+            'email' => 'required|email|max:255',
+            'public' => 'required',
+        ]);
+
+        $user_id = Auth::user()->id;
+        $contact = Contact::find($id);
+        
+        #update db
+
+        $contact->first_name = $request->first_name;
+        $contact->last_name = $request->last_name;
+        $contact->street = $request->street;
+        $contact->house_nr = $request->house_nr;
+        $contact->city = $request->city;
+        $contact->zip_code = $request->zip_code;
+        $contact->phone_nr = $request->phone_nr;
+        $contact->email = $request->email;
+        $contact->public = $request->public;
+        $contact->save();
+
+        return redirect('dashboard');
     }
     //(soft)Deletes contact
-    public function destroy($id)
+    public function destroy(Request $request)
     {
-        # code...
+        $contact = Contact::find($request->contact_id);
+        $contact->delete();
+
+        return redirect('dashboard');
     }
 
 
