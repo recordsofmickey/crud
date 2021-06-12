@@ -1,62 +1,38 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+## Build a Laravel CRUD
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Beste lezer,
 
-## About Laravel
+Bijgevoegd de code van mijn CRUD applicatie. Totaal ben ik er denk ik 2 avonden aan kwijt geweest (+- 8 uur).
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+### Installeer lokaal een Laravel applicatie, pas bij voorkeur direct versiebeheer toe. 
+Lokaal een Breeze install gemaakt voor o.a. een login functionaliteit. In terminal direct versiebeheer toegepast.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+### Maak een entiteit voor de contactpersonen. 
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+Ik heb een model aangemaakt genaamd 'Contact'.
+    
+### Draag zorg voor een overzicht van de contactpersonen. 
 
-## Learning Laravel
+Migratie gemaakt en een DashboardController voor het overzicht in de dashboard view.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+### Maak de contactpersonen beheersbaar middels het CRUD.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+ContactController gemaakt om Contacten te:
+    - Creeren
+    - Tonen
+    - Updaten
+    - (Soft)Deleten
 
-## Laravel Sponsors
+### Uiteraard zijn alle extra zaken die laat zien extra overtuigend, leef je uit :-). 
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+Heb bij contacten een optie gemaakt om ze publiek of prive te maken. Publiek is zichtbaar voor andere gebruikers en voor 'guests'
 
-### Premium Partners
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
+### Stuur geen database in vorm van een sql export mee, bekijk hoe je dat op een andere manier kan doen. Liefst wel met enkele voorbeeld rijen in de tables
 
-## Contributing
+Dit was even lastig, wist dat het met factories en seeden kon, had dit echter nog niet gedaan. Aangezien er geen database export meegestuurd mocht worden dacht ik eerst, dan gebruik ik SQLITE, dan kan de hele database meegestuurd worden. Daarna toch gekozen om ContactFactory aan te maken. Dus in .env kan er gekozen worden voor een andere database en deze kan gevuld worden met 'php artisan db:seed'. Wel is het noodzakelijk om een account aan te maken voordat dit commando uitgevoerd kan worden. 
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+Mochten er vragen zijn, ik hoor het graag!
 
-## Code of Conduct
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
 
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
