@@ -18,12 +18,9 @@ Migratie gemaakt en een DashboardController voor het overzicht in de dashboard v
 ### Maak de contactpersonen beheersbaar middels het CRUD.
 
 ContactController gemaakt om Contacten te:
-    - Creeren. 
-    
-    - Tonen. 
-    
-    - Updaten. 
-    
+    - Creeren
+    - Tonen
+    - Updaten
     - (Soft)Deleten  
     
 
