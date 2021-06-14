@@ -26,7 +26,7 @@ ContactController gemaakt om Contacten te:
 
 ### Uiteraard zijn alle extra zaken die laat zien extra overtuigend, leef je uit :-). 
 
-Heb bij contacten een optie gemaakt om ze publiek of prive te maken. Publiek is zichtbaar voor andere gebruikers en voor 'guests'
+Heb bij contacten een optie gemaakt om ze publiek of prive te maken. Publiek is zichtbaar voor andere gebruikers en voor 'guests' (alleen de namen).
 
 
 ### Stuur geen database in vorm van een sql export mee, bekijk hoe je dat op een andere manier kan doen. Liefst wel met enkele voorbeeld rijen in de tables
